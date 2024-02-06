@@ -44,41 +44,48 @@ export class SubmitForm {
                     (D.id('hit-id') as HTMLInputElement).value =
                         data.urlData.hitID;
                 }
-                (Elements.submitForm as HTMLFormElement).action = data.urlData
-                    .submitTo as string;
-                allowSubmission.preSubmit();
-                const resp = await fetch(gate, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'x-api-key': k,
-                    },
-                    body: JSON.stringify({
-                        sandbox: params.sandbox,
-                        wustl_key: params.wustl_key,
-                        project: params.project,
-                        iteration: params.iteration,
-                        tag: params.tag,
-                        assignmentID: data.urlData.assignmentID,
-                        hitID: data.urlData.hitID,
-                        workerID: data.urlData.workerID,
-                        log: data.serialize(),
-                    }),
-                }); // TODO: verify this actually works
-                console.log(resp.status);
-                console.log(await resp.json());
-                if (resp.status !== 200) {
-                    alert(
-                        'You made a bad request with your submission. The server thinks that you made this error: ' +
-                            (await resp.json()).error
-                    );
-                    return;
-                }
-                SubmitForm.elem.removeEventListener(
-                    'submit',
-                    SubmitForm.submitFunc
-                );
-                SubmitForm.elem.submit();
+
+                console.log("\n\nPlease record this data for your user test: \n")
+                console.log("Note: this should be in your copy buffer if you want to just paste directly. \n")
+                console.log(JSON.stringify(data));
+
+                navigator.clipboard.writeText(JSON.stringify(data));
+
+                // (Elements.submitForm as HTMLFormElement).action = data.urlData
+                //     .submitTo as string;
+                // allowSubmission.preSubmit();
+                // const resp = await fetch(gate, {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //         'x-api-key': k,
+                //     },
+                //     body: JSON.stringify({
+                //         sandbox: params.sandbox,
+                //         wustl_key: params.wustl_key,
+                //         project: params.project,
+                //         iteration: params.iteration,
+                //         tag: params.tag,
+                //         assignmentID: data.urlData.assignmentID,
+                //         hitID: data.urlData.hitID,
+                //         workerID: data.urlData.workerID,
+                //         log: data.serialize(),
+                //     }),
+                // }); // TODO: verify this actually works
+                // console.log(resp.status);
+                // console.log(await resp.json());
+                // if (resp.status !== 200) {
+                //     alert(
+                //         'You made a bad request with your submission. The server thinks that you made this error: ' +
+                //             (await resp.json()).error
+                //     );
+                //     return;
+                // }
+                // SubmitForm.elem.removeEventListener(
+                //     'submit',
+                //     SubmitForm.submitFunc
+                // );
+                // SubmitForm.elem.submit();
             } else {
                 alert(allowed);
             }
