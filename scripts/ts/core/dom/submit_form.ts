@@ -50,13 +50,13 @@ export class SubmitForm {
                 data.data.task = urlParams.get("tag")
                 data.data.response = document.getElementById("text-area").value
 
-                console.log("\n\nPlease record this data for your user test: \n")
-                console.log("Note: this should be in your copy buffer if you want to just paste directly. \n")
+                console.log("\n\nDATA FOR TASK: " + data.data.task + "\n")
+                // console.log("Note: this should be in your copy buffer if you want to just paste directly. \n")
                 console.log(JSON.stringify(data));
 
-                navigator.clipboard.writeText(JSON.stringify(data));
+                // navigator.clipboard.writeText(JSON.stringify(data));
 
-                alert("User data successfully copied to clipboard. Please record into a text document.")
+                 alert("Open console to see user data. Please record into a text document.")
 
                 // (Elements.submitForm as HTMLFormElement).action = data.urlData
                 //     .submitTo as string;
