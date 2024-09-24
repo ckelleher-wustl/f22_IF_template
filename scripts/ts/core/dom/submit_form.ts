@@ -51,10 +51,7 @@ export class SubmitForm {
                 data.data.response = document.getElementById("text-area").value
 
                 console.log("\n\nDATA FOR TASK: " + data.data.task + "\n")
-                // console.log("Note: this should be in your copy buffer if you want to just paste directly. \n")
                 console.log(JSON.stringify(data));
-
-                // navigator.clipboard.writeText(JSON.stringify(data));
 
                  alert("Open console to see user data. Please record into a text document.")
 
