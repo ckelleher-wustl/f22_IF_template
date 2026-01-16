@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+	"types": [],
+    "skipLibCheck": true,
+	"resolveJsonModule": true,
+    "esModuleInterop": true,
     /* Basic Options */
     // "incremental": true,                   /* Enable incremental compilation */
     "target": "es5" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019' or 'ESNEXT'. */,
@@ -59,5 +63,7 @@
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
-  }
+  },
+  "include": ["scripts/ts/**/*"],
+  "exclude": ["deploy", "node_modules"]
 }

@@ -5,5 +5,7 @@ export interface Scenario {
 }
 
 // tslint:disable-next-line: no-var-requires
-export const scenarios: Scenario[] = require('./../../../../scenarios/scenarios.json');
+// export const scenarios: Scenario[] = require('./../../../../scenarios/scenarios.json');
+import scenarios from './../../../../scenarios/scenarios.json';
+export { scenarios };
 (window as any).scenarios = scenarios;

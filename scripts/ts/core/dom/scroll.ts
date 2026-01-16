@@ -98,18 +98,19 @@ export class Scroll {
         return Math.ceil((this.endPos - curPos) / steps);
     }
 
-    private scroll() {
+    private scroll(): void {
         window.scroll(0, this.calcScrollAmount());
         if (window.pageYOffset === this.endPos) {
             this.complete();
         } else {
-            requestAnimationFrame(this.scroll);
+            requestAnimationFrame(() => this.scroll());
         }
     }
 
-    private attemptScroll() {
-        if ('requestAnimationFrame' in window === false) {
-            window.scroll(0, this.endPos);
+    private attemptScroll(): void {
+        if (!('requestAnimationFrame' in window)) {
+            (window as Window).scroll(0, Number(this.endPos));
+            // (window as Window).scroll({ top: this.endPos, left: 0, behavior: 'auto' });
         }
         this.scroll();
     }
