@@ -19,14 +19,13 @@
     "aws-sdk": "^2.1693.0"
   },
   "devDependencies": {
-    "@types/node": "^25.0.9",
+    "@types/node": "^26.3.0",
     "browser-sync": "^3.0.4",
-    "browserify": "^17.0.1",
-    "concurrently": "^9.2.1",
+    "concurrently": "^10.0.5",
+    "esbuild": "^0.28.2",
     "prettier": "^3.8.0",
     "stringify": "^5.2.0",
-    "tsify": "^5.0.4",
-    "typescript": "^5.9.3",
+    "typescript": "^7.0.2",
     "watchify": "^4.0.0"
   }
 }
